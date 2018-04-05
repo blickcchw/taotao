@@ -1,0 +1,32 @@
+package com.haha;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class MatcherTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		String str = "service@xsoftla1@b.net";
+		boolean bool = checkStr(str);
+		System.out.println(bool);
+	}
+
+	public static boolean checkStr(String str) {
+
+		// 邮箱验证规则
+		String regEx = "[a-zA-Z_]{1,}[0-9]{0,}@(([a-zA-z0-9]-*){1,}\\.){1,3}[a-zA-z\\-]{1,}";
+
+		// 编译正则表达式
+		Pattern pattern = Pattern.compile(regEx);
+
+		// 字符串是否与表达式匹配
+		Matcher matcher = pattern.matcher(str);
+		boolean bool = matcher.matches();
+
+		return bool;
+
+	}
+
+}
